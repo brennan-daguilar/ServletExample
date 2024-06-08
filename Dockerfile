@@ -9,8 +9,8 @@ RUN mvn dependency:go-offline -B
 COPY src ./src
 RUN mvn package -DskipTests
 
-# Use the official Tomcat 9 image from the Docker Hub
-FROM tomcat:9.0
+# Use the official Tomcat 10 image from the Docker Hub
+FROM tomcat:10.0
 
 # Copy the WAR file to the webapps directory of Tomcat
 COPY --from=build /app/target/ServletExample-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
